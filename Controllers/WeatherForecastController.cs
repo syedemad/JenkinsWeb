@@ -1,3 +1,4 @@
+using Jenkins.Shared;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JenkinsWeb.Controllers
@@ -21,6 +22,7 @@ namespace JenkinsWeb.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            Reference oRef = new Reference();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
